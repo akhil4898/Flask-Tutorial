@@ -84,13 +84,14 @@ def student():
 @app.route('/user/<string:name>')
 def user(name):
     if name == 'admin':
-        return redirect(url_for('admin'))
+# There is a specific function named user() which recognizes the user the redirect the user to the exact function which contains the implementation for this particular function.
+        return redirect(url_for('admin'))                      
     if name == 'librarian':
        return redirect(url_for('librarian'))
     if name == 'student':
        return redirect(url_for('student'))
    
 
-   
+
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
