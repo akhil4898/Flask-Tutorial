@@ -13,10 +13,11 @@ app = Flask(__name__)               #Creating the Flask class object...So, Here 
 
 # The route() function of the Flask class defines the URL mapping of the associated (related) function.
 
-@app.route('/')                     # decorator defines the
-def hello_world():                 
-    return render_template('index.html')                   # render_template always used with return statement.
+@app.route('/home/<int:age>')                     # decorator defines the
+def home(age):                 
+    # return render_template('index.html')                   # render_template always used with return statement.
     # return 'Hello world! This is Akhil Upadhyay'
+    return "Your age is: " + str(age)
 
 @app.route('/products')
 def product():
