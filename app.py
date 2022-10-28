@@ -35,18 +35,62 @@
 
 
 
-from flask import Flask, render_template
+
+
+
+
+# from flask import redirect
+from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Hello"
-
-@app.route('/friuts')
-def fruits():
-    return "Fruits"
 
 
+
+# @app.route('/')
+# def home():
+#     return render_template('index.html')
+
+
+
+
+# def about():
+#     return "This is about page..."
+
+# def viewThis():
+#     return "This is very good city..."
+
+# Another approach to perform routing for the flask web application
+# app.add_url_rule('/about', "city", viewThis)
+# app.add_url_rule('/about', "about", about)
+
+
+
+
+
+
+@app.route('/admin')
+def admin():
+    return "admin"
+
+@app.route('/librarian')
+def librarian():
+    return "librarian"
+
+@app.route('/student')
+def student():
+    return "student"
+
+@app.route('/user/<string:name>')
+def user(name):
+    if name == 'admin':
+        return redirect(url_for('admin'))
+    if name == 'librarian':
+       return redirect(url_for('librarian'))
+    if name == 'student':
+       return redirect(url_for('student'))
+   
+
+   
 if __name__ == '__main__':
-    app.run(debug=True, port=8080, host="10.0.0.0")
+    app.run(port=8080, debug=True)
