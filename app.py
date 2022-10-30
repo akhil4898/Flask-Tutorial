@@ -132,8 +132,16 @@
 
 
 
+from flask import Flask
+from flask import request
 
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    val = request.args.get("var")
+    return f"Hello World! {val}"
 
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(debug=True, port=8080)
