@@ -40,24 +40,24 @@
 
 
 # from flask import redirect
-# from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 
-# @app.route('/')
-# def home():
-#     return render_template('index.html')
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-# def about():
-#     return "This is about page..."
+def about():
+    return "This is about page..."
 
-# def viewThis():
-#     return "This is very good city..."
+def viewThis():
+    return "This is very good city..."
 
 # # Another approach to perform routing for the flask web application
-# app.add_url_rule('/viewThis', "city", viewThis)
-# app.add_url_rule('/about', "about", about)
+app.add_url_rule('/viewThis', "city", viewThis)
+app.add_url_rule('/about', "about", about)
 
 
 
@@ -132,16 +132,18 @@
 
 
 
-from flask import Flask
-from flask import request
+# from flask import Flask
+# from flask import request
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route('/')
-def index():
-    val = request.args.get("var")
-    return f"Hello World! {val}"
+# @app.route('/')
+# def index():
+#     val = request.args.get("var")
+#     return f"Hello World! {val}"
+
+
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True)
